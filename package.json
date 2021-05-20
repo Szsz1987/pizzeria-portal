@@ -3,15 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "react-scripts start",
+    "start": "run-p start:* ",
+    "start-silent": "run-p start > /dev/null",
+    "start:react": "react-scripts start",
+    "start-and-test": "run-p start-silent test ",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "lint": "esw --watch --clear",
+    "test": "react-scripts test --noStackTrace",
+    "test-all": "react-scripts test --watchAll=false --noStackTrace",
+    "test-related": "react-scripts test --watchAll=false --noStackTrace --findRelatedTests",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "yarn test-related --",
+      "eslint"
     ]
   },
   "browserslist": {
@@ -44,6 +55,7 @@
     "web-vitals": "^1.0.1"
   },
   "devDependencies": {
+    "eslint-watch": "^7.0.0",
     "husky": "^4.3.0",
     "lint-staged": "^11.0.0",
     "redux-devtools-extension": "^2.13.8"
