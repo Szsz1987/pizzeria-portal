@@ -1,6 +1,10 @@
 @import '../../../styles/settings.scss';
-
 .component {
   padding: $base-size;
+  margin: 6px;
   margin-top: 24px;
+}
+
+form {
+  margin-bottom: 12px;
 }

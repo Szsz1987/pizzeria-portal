@@ -1,44 +1,80 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
+import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import styles from './Login.module.scss';
-
+import Paper from '@material-ui/core/Paper';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import FormControl from '@material-ui/core/FormControl';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import LockIcon from '@material-ui/icons/Lock';
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
   paper: {
-
-    marginTop: theme.spacing(8),
+    padding: theme.spacing(2),
     textAlign: 'center',
     color: theme.palette.text.secondary,
     elevation: 3,
-    border: '2px solid darkgrey',
-    padding: '15px',
   },
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    flexGrow: 1,
+  container: {
+    justifyContent: 'center',
   },
   margin: {
     margin: theme.spacing(1),
+    marginTop: '10px',
   },
-  withoutLabel: {
-    marginTop: theme.spacing(3),
-  },
-  textField: {
-    width: '25ch',
+  button: {
+    marginTop: '10px',
   },
 }));
-
 const Login = () => {
   const classes = useStyles();
 
   return (
     <div className={styles.component}>
-      <Grid container spacing={3} justify="center">
-        <Grid item xs={8}>
-          <div className={classes.root}>
-          </div>
+      <Grid container spacing={3} className={classes.container}>
+        <Grid item xs={4}>
+          <Paper className={classes.paper}>
+            <Typography variant="h5">
+              Sign in
+            </Typography>
+            <FormControl className={classes.margin}>
+              <InputLabel htmlFor="login">Login</InputLabel>
+              <Input
+                id="login"
+                startAdornment={
+                  <InputAdornment position="start">
+                    <AccountCircle />
+                  </InputAdornment>
+                }
+              />
+            </FormControl>
+            <FormControl className={classes.margin}>
+              <InputLabel htmlFor="password">Password</InputLabel>
+              <Input
+                id="password"
+                startAdornment={
+                  <InputAdornment position="start">
+                    <LockIcon />
+                  </InputAdornment>
+                }
+              />
+            </FormControl>
+            <Button
+              className={classes.button}
+              component={Link}
+              to={`${process.env.PUBLIC_URL}/`}
+            >
+            Sign into system
+            </Button>
+          </Paper>
         </Grid>
       </Grid>
     </div>
