@@ -35,7 +35,8 @@ const TablesEventsNew = () => {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <Typography variant="h3">
+            <Typography variant="h6">
+                New event
             </Typography>
           </Paper>
         </Grid>
@@ -55,16 +56,64 @@ const TablesEventsNew = () => {
               <TableBody>
                 <TableRow>
                   <TableCell>
+                    <form noValidate>
+                      <TextField
+                        id="date"
+                        label="Date"
+                        type="date"
+                        InputLabelProps={{
+                          shrink: true,
+                        }}
+                      />
+                    </form>
                   </TableCell>
                   <TableCell>
+                    <form noValidate>
+                      <TextField
+                        id="time"
+                        label="Pick hour"
+                        type="time"
+                        defaultValue='12:00'
+                        InputLabelProps={{
+                          shrink: true,
+                        }}
+                        inputProps={{
+                          step: 300,
+                        }}
+                      />
+                    </form>
                   </TableCell>
                   <TableCell>
+                    <TextField
+                      className={styles.number}
+                      id="table"
+                      label="Table"
+                      type="number"
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                    />
                   </TableCell>
                   <TableCell>
+                    <form className={classes.root} noValidate autoComplete="off">
+                      <TextField label="Client's Name" id="name" size="small" />
+                    </form>
                   </TableCell>
                   <TableCell>
+                    <form className={classes.root} noValidate autoComplete="off">
+                      <TextField label="Client's Email" id="contact" size="small" />
+                    </form>
                   </TableCell>
                   <TableCell>
+                    <TextField
+                      className={styles.number}
+                      id="number"
+                      label="Number"
+                      type="number"
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                    />
                   </TableCell>
                 </TableRow>
               </TableBody>
@@ -74,6 +123,7 @@ const TablesEventsNew = () => {
         <Grid item xs={12}>
           <Paper className={classes.paper}>
             <Button variant="outlined" color="primary">
+            SAVE CHANGES
             </Button>
           </Paper>
         </Grid>

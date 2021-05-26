@@ -17,17 +17,17 @@ const demoContent = [
     number: '1',
     table: '1',
     name: 'pizza',
-    option: ['feta', 'paprica', 'olives'],
+    option: ['feta', 'feta', 'feta'],
     amount: 1,
-    price: '323',
+    price: '15',
   },
   {
     number: '2',
     table: 'remote',
-    name: 'salad',
-    option: ['feta', 'tomato', 'olives', 'butter'],
+    name: 'pizza',
+    option: ['feta', 'feta', 'feta', 'feta'],
     amount: 1,
-    price: '222',
+    price: '15',
   },
 ];
 const useStyles = makeStyles((theme) => ({
@@ -50,7 +50,7 @@ const Kitchen = () => {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <Typography variant="h3">
+            <Typography variant="h6">
               Kitchen
             </Typography>
           </Paper>

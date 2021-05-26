@@ -1,5 +1,4 @@
 import React from 'react';
-import 'date-fns';
 import styles from './TablesBooking.module.scss';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -10,20 +9,20 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 
 const demoBooking = [
   {
-    id: '',
-    date: '',
-    time: '',
-    table: '',
-    name: '',
-    contact: '',
-    people: '',
+    id: '1',
+    date: '2021-05-26',
+    time: '19:00',
+    table: '3',
+    name: 'SZSZ',
+    contact: '@gmail.com',
+    people: '1',
   },
 ];
-
 const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
@@ -39,7 +38,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-
 const TablesBooking = () => {
   const classes = useStyles();
   return (
@@ -47,7 +45,8 @@ const TablesBooking = () => {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <Typography variant="h3">
+            <Typography variant="h6">
+                Booking details
             </Typography>
           </Paper>
         </Grid>
@@ -66,27 +65,84 @@ const TablesBooking = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
+                {demoBooking.map(booking => (
+                  <TableRow key={booking.id}>
                     <TableCell>
+                      {booking.id}
                     </TableCell>
                     <TableCell>
+                      <form noValidate>
+                        <TextField
+                          id="date"
+                          label="Date"
+                          type="date"
+                          defaultValue={booking.date}
+                          InputLabelProps={{
+                            shrink: true,
+                          }}
+                        />
+                      </form>
                     </TableCell>
                     <TableCell>
+                      <form noValidate>
+                        <TextField
+                          id="time"
+                          label="Hour"
+                          type="time"
+                          defaultValue={booking.time}
+                          InputLabelProps={{
+                            shrink: true,
+                          }}
+                          inputProps={{
+                            step: 300,
+                          }}
+                        />
+                      </form>
                     </TableCell>
                     <TableCell>
+                      <TextField
+                        className={styles.number}
+                        id="table"
+                        label="Table"
+                        type="number"
+                        defaultValue={booking.table}
+                        InputLabelProps={{
+                          shrink: true,
+                        }}
+                      />
                     </TableCell>
                     <TableCell>
+                      <form className={classes.root} noValidate autoComplete="off">
+                        <TextField label="Client's Name" id="name" defaultValue={booking.name} size="small" />
+                      </form>
                     </TableCell>
                     <TableCell>
+                      <form className={classes.root} noValidate autoComplete="off">
+                        <TextField label="Client's Email" id="contact" defaultValue={booking.contact} size="small" />
+                      </form>
                     </TableCell>
                     <TableCell>
+                      <TextField
+                        className={styles.number}
+                        id="number"
+                        label="Number"
+                        type="number"
+                        defaultValue={booking.people}
+                        InputLabelProps={{
+                          shrink: true,
+                        }}
+                      />
                     </TableCell>
-                </TableBody>
-              </Table>
-            </Paper>
-          </Grid>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </Paper>
+        </Grid>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
             <Button variant="outlined" color="primary">
+            SAVE CHANGES
             </Button>
           </Paper>
         </Grid>

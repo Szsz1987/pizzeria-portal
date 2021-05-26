@@ -9,6 +9,7 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
@@ -34,7 +35,8 @@ const TablesBookingNew = () => {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <Typography variant="h3">
+            <Typography variant="h6">
+                New booking
             </Typography>
           </Paper>
         </Grid>
@@ -54,16 +56,64 @@ const TablesBookingNew = () => {
               <TableBody>
                 <TableRow>
                   <TableCell>
+                    <form noValidate>
+                      <TextField
+                        id="date"
+                        label="Date"
+                        type="date"
+                        InputLabelProps={{
+                          shrink: true,
+                        }}
+                      />
+                    </form>
                   </TableCell>
                   <TableCell>
+                    <form noValidate>
+                      <TextField
+                        id="time"
+                        label="Pick hour"
+                        type="time"
+                        defaultValue='12:00'
+                        InputLabelProps={{
+                          shrink: true,
+                        }}
+                        inputProps={{
+                          step: 300,
+                        }}
+                      />
+                    </form>
                   </TableCell>
                   <TableCell>
+                    <TextField
+                      className={styles.number}
+                      id="table"
+                      label="Table"
+                      type="number"
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                    />
                   </TableCell>
                   <TableCell>
+                    <form className={classes.root} noValidate autoComplete="off">
+                      <TextField label="Client's Name" id="name" size="small" />
+                    </form>
                   </TableCell>
                   <TableCell>
+                    <form className={classes.root} noValidate autoComplete="off">
+                      <TextField label="Client's Email" id="contact" size="small" />
+                    </form>
                   </TableCell>
                   <TableCell>
+                    <TextField
+                      className={styles.number}
+                      id="number"
+                      label="Number"
+                      type="number"
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                    />
                   </TableCell>
                 </TableRow>
               </TableBody>

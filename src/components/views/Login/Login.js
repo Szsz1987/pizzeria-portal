@@ -32,17 +32,18 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     marginTop: '10px',
+    textDecoration: 'none',
   },
 }));
+
 const Login = () => {
   const classes = useStyles();
-
   return (
     <div className={styles.component}>
       <Grid container spacing={3} className={classes.container}>
         <Grid item xs={4}>
           <Paper className={classes.paper}>
-            <Typography variant="h5">
+            <Typography variant="h6">
               Sign in
             </Typography>
             <FormControl className={classes.margin}>
@@ -68,11 +69,10 @@ const Login = () => {
               />
             </FormControl>
             <Button
-              className={classes.button}
               component={Link}
-              to={`${process.env.PUBLIC_URL}/`}
+              className={classes.button}
             >
-            Sign into system
+            Sign into panel
             </Button>
           </Paper>
         </Grid>

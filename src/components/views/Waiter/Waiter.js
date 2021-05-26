@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
 
 const demoContent = [
   {id: '1', status: 'free', order: null},
@@ -19,18 +20,27 @@ const demoContent = [
   {id: '5', status: 'delivered', order: 345},
   {id: '6', status: 'paid', order: 456},
 ];
+
 const renderActions = status => {
   switch (status) {
     case 'free':
       return (
         <>
           <Button>thinking</Button>
-          <Button>new order</Button>
+          <Button
+            component={Link}
+            to={`${process.env.PUBLIC_URL}/waiter/order/new`}>
+              New order
+          </Button>
         </>
       );
     case 'thinking':
       return (
-        <Button>new order</Button>
+        <Button
+          component={Link}
+          to={`${process.env.PUBLIC_URL}/waiter/order/new`}>
+          New order
+        </Button>
       );
     case 'ordered':
       return (
@@ -52,6 +62,7 @@ const renderActions = status => {
       return null;
   }
 };
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -71,7 +82,7 @@ const Waiter = () => {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <Typography variant="h3">
+            <Typography variant="h6">
                 Waiter
             </Typography>
           </Paper>
@@ -98,7 +109,9 @@ const Waiter = () => {
                     </TableCell>
                     <TableCell>
                       {row.order && (
-                        <Button to={`${process.env.PUBLIC_URL}/waiter/order/${row.order}`}>
+                        <Button
+                          component={Link}
+                          to={`${process.env.PUBLIC_URL}/waiter/order/1`}>
                           {row.order}
                         </Button>
                       )}

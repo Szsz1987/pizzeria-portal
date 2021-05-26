@@ -27,53 +27,53 @@ const demoContent = [
       { id: '1', status: 'null' },
       { id: '2', status: 'booked' },
       { id: '3', status: 'event' },
-      { id: '4', status: 'event' },
-      { id: '5', status: 'null' },
-      { id: '6', status: 'null' },
+      { id: '4', status: 'null' },
+      { id: '5', status: 'booked' },
+      { id: '6', status: 'event' },
     ],
   },
   {
     hour: '13:30',
     tables: [
       { id: '1', status: 'null' },
-      { id: '2', status: 'null' },
+      { id: '2', status: 'booked' },
       { id: '3', status: 'event' },
-      { id: '4', status: 'event' },
-      { id: '5', status: 'null' },
-      { id: '6', status: 'null' },
+      { id: '4', status: 'null' },
+      { id: '5', status: 'booked' },
+      { id: '6', status: 'event' },
     ],
   },
   {
     hour: '14:00',
     tables: [
-      { id: '1', status: 'booked' },
+      { id: '1', status: 'null' },
       { id: '2', status: 'booked' },
       { id: '3', status: 'event' },
-      { id: '4', status: 'event' },
-      { id: '5', status: 'null' },
-      { id: '6', status: 'booked' },
+      { id: '4', status: 'null' },
+      { id: '5', status: 'booked' },
+      { id: '6', status: 'event' },
     ],
   },
   {
     hour: '14:30',
     tables: [
-      { id: '1', status: 'booked' },
+      { id: '1', status: 'null' },
       { id: '2', status: 'booked' },
       { id: '3', status: 'event' },
-      { id: '4', status: 'event' },
-      { id: '5', status: 'null' },
-      { id: '6', status: 'booked' },
+      { id: '4', status: 'null' },
+      { id: '5', status: 'booked' },
+      { id: '6', status: 'event' },
     ],
   },
   {
     hour: '15:00',
     tables: [
-      { id: '1', status: 'booked' },
+      { id: '1', status: 'null' },
       { id: '2', status: 'booked' },
       { id: '3', status: 'event' },
-      { id: '4', status: 'event' },
-      { id: '5', status: 'null' },
-      { id: '6', status: 'booked' },
+      { id: '4', status: 'null' },
+      { id: '5', status: 'booked' },
+      { id: '6', status: 'event' },
     ],
   },
 ];
@@ -132,7 +132,7 @@ const Tables = () => {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <Typography variant="h3">
+            <Typography variant="h6">
                 Tables view
             </Typography>
           </Paper>
@@ -159,27 +159,6 @@ const Tables = () => {
           <Paper className={classes.paper}>
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
               <Grid container justify="space-around">
-                <KeyboardDatePicker
-                  margin="normal"
-                  id="date-picker-dialog"
-                  label="Pick date"
-                  format="MM/dd/yyyy"
-                  value={selectedDate}
-                  onChange={handleDateChange}
-                  KeyboardButtonProps={{
-                    'aria-label': 'change date',
-                  }}
-                />
-                <KeyboardTimePicker
-                  margin="normal"
-                  id="time-picker"
-                  label="Time picker"
-                  value={selectedDate}
-                  onChange={handleDateChange}
-                  KeyboardButtonProps={{
-                    'aria-label': 'change time',
-                  }}
-                />
               </Grid>
             </MuiPickersUtilsProvider>
           </Paper>

@@ -12,17 +12,17 @@ import TableRow from '@material-ui/core/TableRow';
 
 const orders = [
   {id: 1, dish: ['salad', 'pizza'], price: '15$', type: 'remote'},
-  {id: 2, dish: ['pizza'], price: '10$', type: 'remote'},
-  {id: 3, dish: ['salad', 'pizza', 'doughnut'], price: '18$', type: 'local'},
-  {id: 4, dish: ['salad', 'pizza', 'breakfast'], price: '20$', type: 'local'},
+  {id: 2, dish: ['salad'], price: '15$', type: 'remote'},
+  {id: 3, dish: ['salad', 'pizza', 'doughnut'], price: '15$', type: 'local'},
+  {id: 4, dish: ['salad', 'pizza', 'doughnut'], price: '15$', type: 'local'},
 ];
 
 const reservations = [
-  {id: 1, type: 'event', time: '12:00 - 14:00', table: '1'},
-  {id: 2, type: 'event', time: '14:00 - 15:00', table: '2'},
-  {id: 3, type: 'reservation', time: '14:00 - 16:00', table: '2'},
-  {id: 4, type: 'reservation', time: '17:00 - 17:30', table: '4'},
-  {id: 5, type: 'reservation', time: '19:00 - 20:00', table: '6'},
+  {id: 1, type: 'event', time: '12:00 - 13:00', table: '1'},
+  {id: 2, type: 'event', time: '13:00 - 14:00', table: '2'},
+  {id: 3, type: 'reservation', time: '14:00 - 15:00', table: '2'},
+  {id: 4, type: 'reservation', time: '15:00 - 16:00', table: '4'},
+  {id: 5, type: 'reservation', time: '16:00 - 17:00', table: '6'},
 ];
 
 const useStyles = makeStyles((theme) => ({
@@ -43,7 +43,7 @@ const Homepage = () => {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <Typography variant="h4">
+            <Typography variant="h6">
               Summary
             </Typography>
           </Paper>
