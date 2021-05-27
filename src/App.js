@@ -8,29 +8,30 @@ import Tables from './components/views/Tables/Tables';
 import TablesBooking from './components/views/TablesBooking/TablesBooking';
 import TablesBookingNew from './components/views/TablesBookingNew/TablesBookingNew';
 import TablesEvents from './components/views/TablesEvents/TablesEvents';
-import Waiter from './components/views/Waiter/Waiter';
+import Waiter from './components/views/Waiter/WaiterContainer';
 import WaiterOrder from './components/views/WaiterOrder/WaiterOrder';
 import WaiterOrderNew from './components/views/WaiterOrderNew/WaiterOrderNew';
 import TablesEventsNew from './components/views/TablesEventsNew/TablesEventsNew';
 import { StylesProvider } from '@material-ui/core/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 
 const theme = createMuiTheme({
   palette: {
     primary: {
       main: '#2B4C6F',
     },
-    //secondary: { main: '#11cb5f'},
   },
 });
 
-
 function App() {
   return (
+    <Provider >
     <BrowserRouter>
       <StylesProvider injectFirst>
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={}>
           <MainLayout>
             <Switch>
               <Route exact path={`${process.env.PUBLIC_URL}/`} component={Homepage} />
@@ -46,10 +47,11 @@ function App() {
               <Route exact path={`${process.env.PUBLIC_URL}/waiter/order/new`} component={WaiterOrderNew} />
             </Switch>
           </MainLayout>
-        </ThemeProvider>  
+        </ThemeProvider>
       </StylesProvider>
     </BrowserRouter>
-  );
+  </Provider>
+);
 }
 
 export default App;
