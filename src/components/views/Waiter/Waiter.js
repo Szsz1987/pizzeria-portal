@@ -19,10 +19,12 @@ class Waiter extends React.Component {
     }),
     tables: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   }
+
   componentDidMount(){
     const { fetchTables } = this.props;
     fetchTables();
   }
+
   renderActions(id, status){
     const { updateStatus } = this.props;
     switch (status) {
@@ -57,8 +59,11 @@ class Waiter extends React.Component {
         return (
           <Button onClick={() => updateStatus(id, 'ordered')}>ordered</Button>
         );
+      default:
+        return null;
     }
   }
+
   render() {
     const { loading: { active, error }, tables } = this.props;
     if(active || !tables.length){
